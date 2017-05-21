@@ -318,11 +318,12 @@ $.getJSON("data/keyValues.json", function( data ) {
             d3.select(this).moveToFront();
             d3.selectAll(".character")
             	.attr("x", function(){
-            		if(d3.mouse(this)[0] < 200){
-            			return d3.mouse(this)[0]+10+$(window).scrollLeft();
+            		return d3.mouse(this)[0];
+            		/*if(d3.mouse(this)[0] < 200){
+            			//d3.mouse(this)[0]+10+$(window).scrollLeft();
             		} else {
-            			return d3.mouse(this)[0]-10+$(window).scrollLeft();
-            		}
+            			//d3.mouse(this)[0]-10+$(window).scrollLeft();
+            		}*/
             	})
             	.attr("y", d3.mouse(this)[1]+10)
             	.attr("text-anchor", function(){

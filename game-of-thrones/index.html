@@ -7,6 +7,7 @@
 	<meta name="keywords" content="Game of Thrones, data visualization, narrative chart, Stark, Baratheon, Lannister, Targaryen, John Snow, Tyrion Lannister, Daenerys Targaryen">
 	<meta name="author" content="Jeffrey Lancaster">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
 	<style>
 		body{
 			font-family: "Helvetica Neue";
@@ -111,11 +112,12 @@
 			fill: none;
 		}
 		.king, .khal, .khaleesi{
-			stroke: yellow;
+			/*stroke: #E21836;*/
+			stroke: gold;
 			stroke-width: 3px;
 		}
 		.hand{
-			stroke: #888;
+			stroke: #84B817;
 			stroke-width: 3px;
 			stroke-dasharray: 1, 8;
 			stroke-linecap: round;
@@ -148,78 +150,6 @@
 			display: inline-block;
 			cursor: default;
 		}
-		.stark .line, .stark .rect{
-			stroke: #777;
-		}
-		.stark .rect{
-			fill: #777;
-		}
-		.targaryen .line, .targaryen .rect{
-			stroke: purple;
-		}
-		.targaryen .rect{
-			fill: purple;
-		}
-		.baratheon .line, .baratheon .rect{
-			stroke: brown;
-		}
-		.baratheon .rect{
-			fill: brown;
-		}
-		.lannister .line, .lannister .rect{
-			stroke: gold;
-		}
-		.lannister .rect{
-			fill: gold;
-		}
-		.nightswatch .line, .nightswatch .rect{
-			stroke: #333;
-		}
-		.nightswatch .rect{
-			fill: #333;
-		}
-		.dothraki .line, .dothraki .rect{
-			stroke: sandybrown;
-		}
-		.dothraki .rect{
-			fill: sandybrown;
-		}
-		.greyjoy .line, .greyjoy .rect{
-			stroke: darkslateblue;
-		}
-		.greyjoy .rect{
-			fill: darkslateblue;
-		}
-		.tyrell .line, .tyrell .rect{
-			stroke: darkred;
-		}
-		.tyrell .rect{
-			fill: darkred;
-		}
-		.wildling .line, .wildling .rect{
-			stroke: khaki;
-		}
-		.wildling .rect{
-			fill: khaki;
-		}
-		.martell .line, .martell .rect{
-			stroke: goldenrod;
-		}
-		.martell .rect{
-			fill: goldenrod;
-		}
-		.frey .line, .frey .rect{
-			stroke: #AAA;
-		}
-		.frey .rect{
-			fill: #AAA;
-		}
-		.tully .line, .tully .rect{
-			stroke: royalblue;
-		}
-		.tully .rect{
-			fill: royalblue;
-		}
 		.keyLabel{
 			font-family: "Helvetica Neue";
 			font-size: 0.8em;
@@ -243,6 +173,44 @@
 			fill: none;
 			stroke: #888;
 			stroke-width: 0.5px;
+		}
+		#key{
+			display: inline-block;
+		}
+		#ui{
+			width: 410px;
+			/*height: calc(410px * 9/16);*/
+			border: 2px solid #444;
+			margin: 15px 15px;
+			padding: 25px;
+			display: inline-block;
+			vertical-align: top;
+			font-size: 12px;
+		}
+		#ui h1{
+			font-size: 30px;
+			margin-top: -5px;
+			margin-bottom: 0;
+			font-weight: 400;
+			color: rgb(230, 230, 230);
+		}
+		#ui h2{
+			font-size: 20px;
+			margin: 5px 0 0 0;
+			font-weight: 400;
+			color: rgb(230, 230, 230);
+		}
+		.hide{
+			display: none;
+			opacity: 0;
+			stroke: none;
+			fill: none;
+		}
+		input[type=radio]{
+			margin-right: 5px;
+		}
+		input[type=radio]:nth-child(3n), input[type=radio]:nth-child(3n+1){
+			margin-left: 10px;
 		}
 	</style>
 </head>
@@ -476,21 +444,46 @@
 		</svg>
 	</div>
 	<div id="key"></div>
+	<div id="ui">
+		<h1>Select</h1>
+		<form>
+			<div id="gender-select">
+				<h2>Gender</h2>
+			</div>
+			<div id="house-select">
+				<h2>House</h2>
+				<select>
+					<option disabled selected>Select a House</option>
+				</select>
+			</div>
+			<div id="character-select">
+				<h2>Character</h2>
+				<select>
+					<option disabled selected>Select a Character</option>
+				</select>
+			</div>
+			<div id="title-select">
+				<h2>Title</h2>
+				<select>
+					<option disabled selected>Select a Title</option>
+				</select>
+			</div>
+			<div id="life-select">
+				<h2>Alive</h2>
+				<input type="radio" value="alive" name="alive">Alive
+				<input type="radio" value="dead" name="alive">Dead
+				<input type="radio" value="characters" name="alive">Both
+			</div>
+		</form>	
+	</div>
 	<div id="description">
-		<p>Code for this narrative chart is on <a href="https://github.com/jeffreylancaster/game-of-thrones" target="_blank">github</a>, and a description of the project is on <a href="https://medium.com/@jeffrey.lancaster/the-ultimate-game-of-thrones-dataset-a100c0cf35fb" target="_blank">Medium</a>. Comments and suggestions are welcome on github, Medium, or <a href="mailto: jeffrey@jeffreylancaster.com" target="_blank">here</a>.</p>
+		<p>Code for this narrative chart is on <a href="#" target="_blank">github</a>, and a description of the project is on <a href="#" target="_blank">Medium</a>. Comments and suggestions are welcome on github, Medium, or <a href="mailto: jeffrey@jeffreylancaster.com" target="_blank">here</a>.</p>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+	<!-- for local development -->
+	<!-- <script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/d3.min.js"></script>-->
 	<script src="js/map.js"></script>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-21280244-2', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
 </body>
 </html>

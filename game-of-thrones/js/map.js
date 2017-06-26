@@ -1,3 +1,33 @@
+function isolate(className){
+	className = className.toLowerCase().replace(/([^A-Z0-9])/gi,"");
+	$(".characters").addClass("hide");
+	if(className == "king" || className == "khal" || className == "khaleesi" || className == "hand" || className == "dead"){
+		$("."+className).parent().removeClass("hide");
+	} else if(className == "alive"){
+		$(".characters").not($(".dead").parent()).removeClass("hide");
+	} else {
+		$("."+className).removeClass("hide");
+	}
+}
+
+function toTitleCase(str){
+    return str.replace(/\w\S*/g, function(txt){
+    	return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
+
+// hide the UI box until everything is loaded
+$("#ui").toggle();
+
+// $(window).mousemove(function(evt){
+// 	var body = document.body; // For Chrome, Safari and Opera
+// 	var html = document.documentElement; // Firefox and IE
+// 	console.log(body.scrollLeft, html.scrollLeft, $(window).scrollLeft());
+// 	var mousex = evt.clientX + $(window).scrollLeft();
+// 	var mousey = evt.clientY;
+// 	console.log(mousex, mousey);
+// });
+
 $.getJSON("data/keyValues.json", function( data ) {
 
 	var keyValues = data.keyValues;
@@ -14,6 +44,9 @@ $.getJSON("data/keyValues.json", function( data ) {
 	var titlePoints = [];
 	var points = [];
 
+	// an array to keep titles
+	var titles = [];
+
 	// from: http://bl.ocks.org/eesur/4e0a69d57d3bfc8a82c2
 	d3.selection.prototype.moveToFront = function() {  
       return this.each(function(){
@@ -28,6 +61,11 @@ $.getJSON("data/keyValues.json", function( data ) {
             } 
         });
     };
+
+    // to dedpulicate an array
+	function onlyUnique(value, index, self) { 
+	    return self.indexOf(value) === index;
+	}
 
     // build the array of points from keyValues
 	keyValues.forEach(function(d,i){
@@ -68,6 +106,7 @@ $.getJSON("data/keyValues.json", function( data ) {
 				if(keyValues[i].values[j].t){
 					titlePoints[i].push(objStart);
 					titlePoints[i].push(objEnd);
+					titles.push(keyValues[i].values[j].t);
 				} else {
 					titlePoints[i].push(null);
 				}
@@ -77,6 +116,12 @@ $.getJSON("data/keyValues.json", function( data ) {
 	
 	// modify titlePoints
 	var titlePointsAdj = [];
+	
+	// dedpulicate the titles array and add values to select
+	titles = titles.filter(onlyUnique).sort();
+	for(i=0; i<titles.length; i++){
+		$("#title-select > select").append("<option>"+titles[i]+"</option>");
+	}
 
 	// remove objects that only have null values
 	for(i=0; i<titlePoints.length; i++){
@@ -155,22 +200,14 @@ $.getJSON("data/keyValues.json", function( data ) {
             .attr("text-anchor", "end");
 	});
 
-	// add rectangles representing each episode or season
+	// add rectangles representing each episode
 	episodeLengths.forEach(function(d,i){
-		// add rectangles for each season
-		/* svg.append("rect")
-			.attr("class", "season")
-			.attr("height", height+10)
-			.attr("width", d.length/100)
-			.attr("x", d.shift/100)
-			.attr("y", -5)
-			.attr("fill", "none"); */
 		// add rectangles for each episode
 		episodeLengths[i].episodes.forEach(function(e,j){
 			episodeTitle = e.episodeTitle.toLowerCase().replace(/([^A-Z0-9])/gi,"");
 			svg.append("g")
-				.attr("class", episodeTitle);
-			svg.select("."+episodeTitle)
+				.attr("class", episodeTitle+"-episode");
+			svg.select("."+episodeTitle+"-episode")
 				.append("rect")
 				.attr("class", "episode season"+episodeLengths[i].seasonNum)
 				.attr("height", height+10)
@@ -181,7 +218,7 @@ $.getJSON("data/keyValues.json", function( data ) {
 		episodeLengths[i].episodes.forEach(function(e,j){
 			episodeTitle = e.episodeTitle.toLowerCase().replace(/([^A-Z0-9])/gi,"");
 			// add episode title to top
-			svg.select("."+episodeTitle)
+			svg.select("."+episodeTitle+"-episode")
 				.append("text")
 				.attr("class", "episodeTitle")
 	            .text("\"" + e.episodeTitle + "\" (S"+ d.seasonNum + ":E" + e.episodeNum + ")")
@@ -210,7 +247,7 @@ $.getJSON("data/keyValues.json", function( data ) {
 	            	}
 	            });
 	        // add episode title to bottom
-	        svg.select("."+episodeTitle)
+	        svg.select("."+episodeTitle+"-episode")
 				.append("text")
 				.attr("class", "episodeTitle")
 	            .text("\"" + e.episodeTitle + "\" (S"+ d.seasonNum + ":E" + e.episodeNum + ")")
@@ -318,16 +355,11 @@ $.getJSON("data/keyValues.json", function( data ) {
             d3.select(this).moveToFront();
             d3.selectAll(".character")
             	.attr("x", function(){
-            		return d3.mouse(this)[0];
-            		/*if(d3.mouse(this)[0] < 200){
-            			//d3.mouse(this)[0]+10+$(window).scrollLeft();
-            		} else {
-            			//d3.mouse(this)[0]-10+$(window).scrollLeft();
-            		}*/
+            		return d3.event.pageX - 40;
             	})
             	.attr("y", d3.mouse(this)[1]+10)
             	.attr("text-anchor", function(){
-            		if(d3.mouse(this)[0] < 200){
+            		if(d3.event.pageX < 200){
             			return "start";
             		} else {
             			return "end";
@@ -341,6 +373,7 @@ $.getJSON("data/keyValues.json", function( data ) {
 	$("#loading").hide();
 	$.getJSON( "data/characters-houses.json", function( data ) {
 		var house = data.house;
+		var charactersArray = [];
 		for(i=0; i<house.length; i++){
 			for(j=0; j<house[i].characters.length; j++){
 				var className = house[i].characters[j].toLowerCase().replace(/([^A-Z0-9])/gi,"");
@@ -349,8 +382,21 @@ $.getJSON("data/keyValues.json", function( data ) {
 				if(houseName !== "include"){
 					$("."+className).addClass("include");
 				}
+				// only include characters from characters-houses in select
+				charactersArray.push(house[i].characters[j]);
+			}
+			if(house[i].name == "Include"){
+				$("#house-select > select").append("<option disabled></option><option value='include'>All Main Characters</option><option value='characters'>All Characters</option>");
+			} else {
+				$("#house-select > select").append("<option>"+house[i].name+"</option>");
 			}
 		}
+		// sort charactersArray and add to character-select
+		charactersArray = charactersArray.sort();
+		for(i=0; i<charactersArray.length; i++){
+			$("#character-select > select").append("<option>"+charactersArray[i]+"</option>");
+		}
+		$("#character-select > select").append("<option disabled></option><option value='characters'>All Characters</option>");
 
 		// build the key - include: houses, hand/khal/khaleesi/king, dead, in scene
 
@@ -454,7 +500,7 @@ $.getJSON("data/keyValues.json", function( data ) {
 		$(".frey .keyLabel").html("Frey + Dead");
 		$(".include .keyLabel").html("Other");
 
-		// add .include to all ines
+		// add .include to all lines
 		for(i=0; i<house.length; i++){
 			var houseName = house[i].name.toLowerCase().replace(/([^A-Z0-9])/gi,"");
 			if(houseName !== "include"){
@@ -462,4 +508,95 @@ $.getJSON("data/keyValues.json", function( data ) {
 			}
 		}
 	});
+// add gender as class to lines, add UI select behavior
+}).done(function(){
+	$.getJSON("data/characters-gender.json", function( data ) {
+		for(i in data.gender){
+			for(j=0; j<data.gender[i].characters.length; j++){
+				var className = data.gender[i].characters[j].toLowerCase().replace(/([^A-Z0-9])/gi,"");
+				$("."+className).addClass(data.gender[i].gender);
+			}
+			// add gender select
+			$("#gender-select").append("<input type='radio' name='gender' value='"+data.gender[i].gender+"'>"+toTitleCase(data.gender[i].gender));
+		}
+		$("#gender-select").append("<input type='radio' name='gender' value='characters'>All");
+
+		// on change in gender select, show only that gender
+		$("#gender-select input").change(function(){
+			// reset other selects
+			$("#life-select input").prop("checked", false);
+			$('#character-select option, #house-select option, #title-select option').prop('selected', function() {
+		        return this.defaultSelected;
+		    });
+			// show only that gender
+			isolate($("#gender-select input[type='radio']:checked").val());
+		});
+		// on change in house select, show only that house
+		$("#house-select select").change(function(){
+			// reset other selects
+			$("#gender-select input, #life-select input").prop("checked", false);
+			$('#character-select option, #title-select option').prop('selected', function() {
+		        return this.defaultSelected;
+		    });
+			// show only that house
+			isolate($("#house-select select option:selected").val());
+		});
+		// on change in character select, show only that character
+		$("#character-select select").change(function(){
+			// reset other selects
+			$("#gender-select input, #life-select input").prop("checked", false);
+			$('#house-select option, #title-select option').prop('selected', function() {
+		        return this.defaultSelected;
+		    });
+			// show only that house
+			isolate($("#character-select select option:selected").val());
+		});
+		// on change in title select, show only that title
+		$("#title-select select").change(function(){
+			// reset other selects
+			$("#gender-select input, #life-select input").prop("checked", false);
+			$('#house-select option, #character-select option').prop('selected', function() {
+		        return this.defaultSelected;
+		    });
+			// show only that title
+			isolate($("#title-select select option:selected").val());
+		});
+		// on change in alive select, show only that life
+		$("#life-select input").change(function(){
+			// reset other selects
+			$("#gender-select input").prop("checked", false);
+			$('#character-select option, #house-select option, #title-select option').prop('selected', function() {
+		        return this.defaultSelected;
+		    });
+			// show only that life
+			isolate($("#life-select input[type='radio']:checked").val());
+		});
+	});
+// add color data to styles
+}).done(function(){
+	$.getJSON("data/colors.json", function( data ) {
+		for(i in data.colors){
+			if(data.colors[i].class){
+				for(j=0; j<data.colors[i].class.length; j++){
+					$("."+data.colors[i].class[j]+" .line, ."+data.colors[i].class[j]+" .rect").css({
+						"stroke": data.colors[i].hexadecimal
+					});
+					$("."+data.colors[i].class[j]+" .rect").css({
+						"fill": data.colors[i].hexadecimal
+					});
+				}
+			}
+			// add additional css via jquery - doesn't work yet
+			/*if(data.colors[i].css){
+				for(j=0; j<data.colors[i].class.length; j++){
+					for(k in data.colors[i].css){
+						$("."+data.colors[i].class[j]).css({k: data.colors[i].css[k]});
+						console.log(k, data.colors[i].css[k]);
+					}
+				}
+			}*/
+		}
+	});
+	// show the UI box
+	$("#ui").toggle();
 });

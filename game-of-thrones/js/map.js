@@ -386,8 +386,7 @@ $.getJSON("data/keyValues.json", function( data ) {
 					$("."+className).addClass("include");
 				}
 				// only include characters from characters-houses in select
-				charactersArray.push(house[i].characters[j]);
-				
+				charactersArray.push(house[i].characters[j]);				
 				// charactersArrayForIMDBImages.push({"name":house[i].characters[j]}); // remove
 			}
 			if(house[i].name == "Include"){
@@ -396,7 +395,6 @@ $.getJSON("data/keyValues.json", function( data ) {
 				$("#house-select > select").append("<option>"+house[i].name+"</option>");
 			}
 		}
-		
 		// sort charactersArray and add to character-select
 		charactersArray = charactersArray.sort();
 		for(i=0; i<charactersArray.length; i++){

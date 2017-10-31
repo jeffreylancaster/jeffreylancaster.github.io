@@ -7,3 +7,4 @@
 - [Game of Thrones - Force-Directed Network](https://jeffreylancaster.github.io/game-of-thrones/force-directed/)
 - [Game of Thrones - Co-stars](https://jeffreylancaster.github.io/game-of-thrones/costars-list/)
 - [Game of Thrones - Co-stars Co-Occurrence](https://jeffreylancaster.github.io/game-of-thrones/costars-matrix/)
+- [Game of Thrones - % Time Per Region](https://jeffreylancaster.github.io/game-of-thrones/region-percent/)

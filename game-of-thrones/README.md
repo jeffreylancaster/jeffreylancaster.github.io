@@ -1,4 +1,4 @@
-# /game-of-thrones
+# Game of Thrones
 
 - [Game of Thrones - Narrative Chart](https://jeffreylancaster.github.io/game-of-thrones/map/)
 - [Game of Thrones - Supercut Duration](https://jeffreylancaster.github.io/game-of-thrones/duration/)

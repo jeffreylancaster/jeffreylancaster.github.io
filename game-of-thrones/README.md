@@ -17,4 +17,4 @@
 ### Written
 
 - [The Ultimate Game of Thrones Datasets - Medium - 20 May 2017](https://medium.com/@jeffrey.lancaster/the-ultimate-game-of-thrones-dataset-a100c0cf35fb)
-- [List of movies with Game of Thrones actors - Medium - 22 Oct 2017)](https://medium.com/@jeffrey.lancaster/list-of-movies-with-game-of-thrones-actors-d5303d08015f)
+- [List of movies with Game of Thrones actors - Medium - 22 Oct 2017](https://medium.com/@jeffrey.lancaster/list-of-movies-with-game-of-thrones-actors-d5303d08015f)

@@ -13,3 +13,8 @@
 
 - [Game of Thrones Datasets (swyx)](https://www.reddit.com/r/freefolk/comments/769hav/game_of_thrones_datasets/)
 - [Westeros and Beyond (Lia Petronio)](https://news.northeastern.edu/2017/07/westeros-and-beyond/#loaded)
+
+### Written
+
+- [The Ultimate Game of Thrones Datasets (medium)](https://medium.com/@jeffrey.lancaster/the-ultimate-game-of-thrones-dataset-a100c0cf35fb)
+- [List of movies with Game of Thrones actors (medium)](https://medium.com/@jeffrey.lancaster/list-of-movies-with-game-of-thrones-actors-d5303d08015f)

@@ -9,6 +9,12 @@
 - [Game of Thrones - Co-stars Co-Occurrence](https://jeffreylancaster.github.io/game-of-thrones/costars-matrix/)
 - [Game of Thrones - % Time Per Region](https://jeffreylancaster.github.io/game-of-thrones/region-percent/)
 
+### Coming Soon
+
+- Chord Diagram of Relationships
+- Treemap of Time on Screen (optionally zoomable)
+- Time on Screen by Season
+
 ### In Use Elsewhere
 
 - [Game of Thrones Datasets (swyx)](https://www.reddit.com/r/freefolk/comments/769hav/game_of_thrones_datasets/)

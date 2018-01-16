@@ -1,8 +1,8 @@
 # Stranger Things
 
 - Stranger Things - Narrative Chart
-- [Stranger Things - Supercut Duration](https://jeffreylancaster.github.io/Stranger Things/duration/)
-- [Stranger Things - % Time Per Season](https://jeffreylancaster.github.io/Stranger Things/duration-percent/)
+- [Stranger Things - Supercut Duration](https://jeffreylancaster.github.io/stranger-things/duration/)
+- [Stranger Things - % Time Per Season](https://jeffreylancaster.github.io/stranger-things/duration-percent/)
 - Stranger Things - Co-Occurrence
 - Stranger Things - Force-Directed Network
 - Stranger Things - Co-stars

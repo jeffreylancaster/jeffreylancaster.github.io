@@ -134,7 +134,7 @@ $.when(
     colors = data.colors;
     console.log("colors.json loaded");
   })
-  .fail(function() {console.error("colors.json not loaded");}),
+  .fail(function() {console.error("colors.json not loaded");})
 
 
 /* DO STUFF WITH THE DATA */

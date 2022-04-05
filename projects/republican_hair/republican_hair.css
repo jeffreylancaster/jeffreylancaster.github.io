@@ -1,0 +1,165 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+	background-color:#EEE;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+h1{
+	
+}
+div.fullcontainer{
+	margin: 5px auto;	
+}
+.container{
+	border-bottom: 2px dashed #999;
+	margin-bottom: 35px;
+	padding-bottom: 15px;
+	width: 1065px;
+	margin: 5px auto;
+}
+.stateimg{
+	display: inline-block;
+	/*height: 200px;*/
+	width: 200px!important;
+	text-align:center;
+	vertical-align:top;
+	margin-right: 10px;
+	border: hidden;
+}
+
+.statename{
+	text-transform:capitalize;
+	text-align: left;
+}
+
+.tophair{
+	display: inline-block;
+	/*border: 1px solid #000;*/
+	position: relative;
+	/*margin: 0px auto;*/
+	text-align:left;
+	width: 1065px;
+	margin: 0px 20px;
+}
+
+.hair{
+	display: inline-block;
+	width: 850px!important;
+	vertical-align:top;
+
+	/*border: 1px solid #000;*/
+	/*width: 1100px;
+	margin: 0px auto;*/
+}
+
+.haircontainer{
+	display: inline-block;
+	vertical-align:top;	
+	/*border: 1px solid #000;*/
+	margin-bottom: 10px;
+}
+.tophaircontainer{
+	display: inline-block;
+	vertical-align:top;	
+	/*border: 1px solid #000;*/
+	margin: 0px auto 10px auto;
+}
+
+.hairimg{
+	display: compact;
+}
+
+.candidate{
+	text-align: center;
+	display: compact;
+	text-transform:capitalize;
+	margin-bottom: 15px;
+}
+
+.out{
+	margin-top: -27px;
+	padding-top: 4px;
+	text-transform:uppercase;
+	text-align: center;
+	font-weight:bolder;
+	color: #F00;
+	font-size: 20px;
+	/*-moz-text-shadow:    2px 2px 7px #FFF;
+ 	-webkit-text-shadow: 2px 2px 7px #FFF;
+ 	text-shadow:         2px 2px 7px #FFF;*/
+}
+.delegates{
+	width: 160px!important;	
+	text-align: center;
+}
+.delegates_o{
+	width: 190px!important;	
+	text-align: center;
+	margin-top: 10px;
+}
+
+.graph{
+	width: 130px;
+	height: 130px;
+	/*float: left;*/
+	/*border: 1px dashed black;*/
+	margin-top: 5px;
+}
+.hover{
+	text-align: center;
+	font-size: 10px;
+	color: #777;
+}
+
+#percentage{
+	text-align: center;
+	display: compact;
+	height: 10px;
+	margin-bottom: 25px;
+	/*Drop Shadow Effect*/
+	/*-moz-box-shadow:    2px 2px 4px 0px #666;
+ 	-webkit-box-shadow: 2px 2px 4px 0px #666;
+ 	box-shadow:         2px 2px 4px 0px #666;*/
+	/*border: 1px solid #000;*/
+}
+.bachmann{background-color: #d9c4a5;}
+/*.cain{background-color: #b7d6c1;}*/
+.gingrich{background-color: #ea9249;}
+.huntsman{background-color: #7f7182;}
+.johnson{background-color: #d2d0c5;}
+/*.mccotter{background-color: #000;}*/
+.paul{background-color: #7eaa7e;}
+/*.pawlenty{background-color: #000;}*/
+.perry{background-color: #a29b88;}
+.roemer{background-color: #d3cfc5;}
+.romney{background-color: #8ab2bf;}
+.santorum{background-color: #b96155;}
+
+img.v{
+	height: 200px!important;
+	vertical-align: middle;
+	border: 0px;
+}
+
+img.w{
+	width: 200px!important;
+	vertical-align: middle;
+	border: 0px;
+}
+
+img.man{
+	height: 23px!important;
+	margin: 1px;
+}
+
+/*img.out{
+	height: 200px!important;	
+	opacity:0.4;
+	filter:alpha(opacity=40); 
+}/* For IE8 and earlier */
+img.in{
+	height: 200px!important;
+	vertical-align: bottom;
+}

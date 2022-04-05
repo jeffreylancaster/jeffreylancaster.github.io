@@ -1,247 +1,311 @@
-<html>
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-  <title>jeffreylancaster.github.io</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="http://www.jeffreylancaster.com/jeffreylancaster.png"/>
+	<!-- Alternate Fixed and Scroll Backgrounds from https://codyhouse.co -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="https://www.jeffreylancaster.com/jeffreylancaster.png"/>
 
-  <!-- h/t https://codepen.io/mcraiganthony/pen/NxGxqm -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
-  <style>
-/*@gray-darker:               #444444;
-@gray-dark:                 #696969;
-@gray:                      #999999;
-@gray-light:                #cccccc;
-@gray-lighter:              #ececec;
-@gray-lightest:             lighten(@gray-lighter,4%);*/
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
-*,
-*::before,
-*::after { 
-  box-sizing: border-box;
-}
 
-html {
-  background-color: #f0f0f0;
-}
-
-body {
-  color: #999999;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.btn {
-  background-color: white;
-  border: 1px solid #cccccc;
-  color: #696969;
-  padding: 0.5rem;
-  text-transform: lowercase;
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-}
- 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.cards-item {
-  display: flex;
-  padding: 1rem;
-}
-
-@media(min-width: 40rem) {
-  /*.cards-item{width: 50%};*/
-  .cards-item{width: 100%};
-}
-@media(min-width: 56rem) {
-  /*.cards-item{width: 33.3333%};*/
-  .cards-item{width: 50%};
-}
-
-.card {
-  background-color: white;
-  /*border-radius: 0.25rem;*/
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.card:hover .card-image{
-  -webkit-filter: contrast(100%);
-  filter: contrast(100%);
-}
-
-.card-content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  padding: 1rem;
-}
-
-.card-image {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /*border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;*/
-  -webkit-filter: contrast(70%);
-  filter: contrast(70%);
-  overflow: hidden;
-  position: relative;
-  -webkit-transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
-  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
-}
-
-.card-image::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-}
-
-@media(min-width: 40rem) {
-  .card-image::before {
-    padding-top: 66.6%; /* 3:2 aspect ratio */
-  }
-}
-
-.card-image-game-of-thrones {
-  background-image: url("/img/game-of-thrones.jpg");
-}
-
-.card-image-stranger-things {
-  background-image: url("/img/stranger-things.jpg");
-}
-
-.card-image-marvel {
-  background-image: url("/img/marvel.jpg");
-}
-
-.card-image-man-in-the-high-castle {
-  background-image: url("/img/man-in-the-high-castle.jpg");
-}
-
-.card-image-transit {
-  background-image: url("/img/transit.png");
-}
-
-.card-title {
-  color: #696969;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-a {
-  text-decoration: none;
-}
-
-.card-text {
-  flex: 1 1 auto;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-}
-
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  border: 0;
-}
-
-  </style>
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<title>jeffreylancaster.com</title>
 </head>
 <body>
+	<header class="main-header">
+		<div class="main-header-logo">
+			<a href="index.html#top" class="scroll">
+				. . .
+				<!-- <img src="img/logo.svg" alt="Logo"> -->
+			</a>
+		</div>
 
-<div class="container">
+		<nav class="main-nav js-main-nav">
+			<ul class="main-nav-list">
+				<li><a href="#top" class="scroll">Home</a></li>
+				<li><a href="#about" class="scroll">About</a></li>
+				<li><a href="#projects" class="scroll">Projects</a></li>
+				<li><a href="#lists" class="scroll">Lists</a></li>
+				<li><a href="#contact" class="scroll">Contact</a></li>
+			</ul>
+		</nav> <!-- main-nav -->
+	</header>
 
-<ul class="cards">
-  <li class="cards-item">
-    <div class="card">
-      <a href="/game-of-thrones/">
-        <div class="card-image card-image-game-of-thrones"></div>
-        <div class="card-content">
-          <div class="card-title">Game of Thrones</div>
-        </a>
-        <p class="card-text">This project started it all. I was curious whether I could visualize the various narrative threads woven throughout the <i>Game of Thrones</i> HBO series; to do that, I had to create a custom dataset with episode and scene metadata, character data, and more.</p>
-        <!-- <button class="btn btn-block card-btn">Button</button> -->
-      </div>
-    </div>
-  </li>
-  <li class="cards-item">
-    <div class="card">
-      <a href="/stranger-things/">
-        <div class="card-image card-image-stranger-things"></div>
-        <div class="card-content">
-          <div class="card-title">Stranger Things</div>
-        </a>
-        <p class="card-text">I was curious whether the <i>Game of Thrones</i> visualizations would work for another show, so I created a new dataset in the same format to extend the work to <i>Stranger Things</i>.</p>
-        <!-- <button class="btn btn-block card-btn">Button</button> -->
-      </div>
-    </div>
-  </li>
-  <li class="cards-item">
-    <div class="card">
-      <a href="/marvel/">
-        <div class="card-image card-image-marvel"></div>
-        <div class="card-content">
-          <div class="card-title">Marvel</div>
-        </a>
-        <p class="card-text">Marvel has done an excellent job weaving narrative threads throughout an extended series of films and shows, so I was curious how that might be visualized. This also led me to having a play with the Marvel Developers API.</p>
-        <!-- <button class="btn btn-block card-btn">Button</button> -->
-      </div>
-    </div>
-  </li>
-  <li class="cards-item">
-    <div class="card">
-      <a href="/man-in-the-high-castle/">
-        <div class="card-image card-image-man-in-the-high-castle"></div>
-        <div class="card-content">
-          <div class="card-title">Man in the High Castle</div>
-        </a>
-        <p class="card-text">When I heard that Amazon Prime includes data in a show about that show, I was curious to extract it and build upon the <i>Game of Thrones</i> and <i>Stranger Things</i> visualizations above, perhaps without needing a custom dataset.</p>
-        <!-- <button class="btn btn-block card-btn">Button</button> -->
-      </div>
-    </div>
-  </li>
-  <li class="cards-item">
-    <div class="card">
-      <a href="/transit/">
-        <div class="card-image card-image-transit"></div>
-        <div class="card-content">
-          <div class="card-title">Transit</div>
-        </a>
-        <p class="card-text">I've always loved transit maps; this is a playground for ideas of re-visualizing those maps using data and physics.</p>
-        <!-- <button class="btn btn-block card-btn">Button</button> -->
-      </div>
-    </div>
-  </li>
-</ul>
+	<main id="top">
+		<div class="fixed-bg fixed-bg--1">
+			<div class="fixed-bg-content">
+				<h1 class="typed" style="display: inline;">
+					I am ...
+				</h1>
+			</div>
+		</div>
 
-</div>
+		<div class="scrolling-bg" id="about">
+			<div class="scrolling-bg-content">
+				<ul class="cards">
+					<li class="cards-item-one-fifth">
+						<div class="profile-card">
+							<img src="../img/JRL_gif_1_sq.gif" class="profile">
+						</div>
+					</li>
+					<li class="cards-item-four-fifths">
+						<div class="profile-card">
+							<!-- <p>
+								I'm a curious thinker and doer, technologist, and educator looking for interesting problems to solve! I have a diverse background as a product developer, a project manager, a librarian, a chemist, a historian, and an artist and have worked in corporate, non-profit, and academic environments. I'm a leader who loves the challenge of quickly learning about customers and/or clients in order to make an impact. I like puns, good grammar, data, and data visualization.
+							</p> -->
+							<p>
+								Hello and welcome! This is a space where I play (not a portfolio) - it's where I try to organize some things that interest me and some projects I've done, and to work through or test out new ideas.
+							</p>
+							<p style="margin-top: 1em;">
+								You see, I've done a lot of different things and worn a number of very different hats (chemist, artist, historian, librarian, developer, educator), and that makes it hard to articulate a snippet description of "who I am" or "what I do" or "what I want to do next". I'm a curious person with a breadth and depth of interests and experiences, and I love to bring that diversity of thought to bear on new problems, some of my own making and some from other people.
+							</p>
+							<p style="margin-top: 1em;">
+								Have an interesting problem? <a href="#contact" class="scroll">Let's talk!</a> I'll also happily banter about puns, good grammar, science, data, data visualization, or anything else really.
+							</p>
+							<p style="text-align: right; margin-top: 2em;">
+								<a href="https://docs.google.com/document/d/1J81jUwlsFkPvvOcuAPBy05VgPW07-c7H5fECJsN9Rus/edit?usp=sharing" target="_blank">Full CV (Google Docs)</a>
+							</p>
+							<p style="text-align-last: justify; margin-top: 2em;" class="social">
+								<a href="https://www.linkedin.com/in/jeffreylancaster" target="_blank" style="color: #3371b7;"><i class="fab fa-linkedin"></i></a><!--linkedin-->
 
+								<a href="https://www.instagram.com/jeffreylancaster/" target="_blank" style="color: #000000;"><i class="fab fa-instagram"></i></a><!--instagram-->
+
+								<a href="https://www.facebook.com/jeffrey.lancaster" target="_blank" style="color: #3e5b98;"><i class="fab fa-facebook-square"></i></a><!--facebook-->
+
+								<a href="https://join.skype.com/invite/P21rQXfKVGwC" target="_blank" style="color: #28abe3;"><i class="fab fa-skype"></i></a><!--skype--><!-- onClick="javascript: alert('Skype username is: jeffrey-lancaster');" -->
+
+								<a href="https://jeffreylancaster.tumblr.com/" target="_blank" style="color: #45556c;"><i class="fab fa-tumblr-square"></i></a><!--tumblr-->
+
+								<a href="https://pinterest.com/j_lancaster/" target="_blank" style="color: #c92619;"><i class="fab fa-pinterest-square mobile-hidden"></i></a><!--pinterest-->
+
+								<a href="https://open.spotify.com/user/122824653?si=YsdQTXzaTLOrmH4gEXn5zg" style="color: #7bb342;"><i class="fab fa-spotify"></i></a><!--spotify-->
+
+								<a href="https://jeffreylancaster.blogspot.com/" target="_blank" style="color: #ec661c"><i class="fab fa-blogger mobile-hidden"></i></a><!--blogger-->
+								
+								<!--<a href="http://www.google.com/profiles/jeffrey.lancaster" target="_blank">B</a>--><!--buzz-->
+								
+								<!--<a href="http://www.classmates.com/people/Jeffrey-Lancaster/8677482207" target="_blank">C</a>--><!--classmates-->
+								
+								<!--<a href="http://www.diigo.com/user/jeffreylancaster" target="_blank">D</a>--><!--diigo-->
+								
+								<!--<a href="http://www.epernicus.com/jrl3" target="_blank">E</a>--><!--epernicus-->
+								
+								<a href="https://foursquare.com/j_lancaster" target="_blank" style="color: #f94877"><i class="fab fa-foursquare mobile-hidden"></i></a><!--foursquare-->
+								
+								<!--<a href="http://profiles.friendster.com/jlancaster" target="_blank">H</a>--><!--friendster-->
+
+								<!--<a href="https://plus.google.com/u/0/100912860880982944809/" target="_blank" style="color: #dd4b39;"><i class="fab fa-google-plus-square mobile-hidden"></i></a>--><!--google+-->
+								
+								<!--<a href="http://alumni.kygsp.org/ProfileView.aspx?MemberID=10493" target="_blank">J</a>--><!--gsp-->
+								
+								<!--<a href="https://ifttt.com/people/jeffreylancaster" target="_blank">K</a>--><!--ifttt-->
+								
+								<!--<a href="http://www.mendeley.com/profiles/jeffrey-lancaster/" target="_blank">N</a>--><!--mendeley-->
+								
+								<!--<a href="http://www.myspace.com/jeffreylancaster" target="_blank">O</a>--><!--myspace-->
+								
+								<a href="https://www.researchgate.net/profile/Jeffrey_Lancaster/" target="_blank" style="color: #00CCBB;"><i class="fab fa-researchgate mobile-hidden"></i></a><!--researchgate-->
+								
+								<a href="https://twitter.com/j_lancaster" target="_blank" style="color: #4da7de;"><i class="fab fa-twitter-square"></i></a><!--twitter-->
+								
+								<!--<a href="/wp/" style="color: #464646;"><i class="fab fa-wordpress"></i></a>--><!--wordpress-->
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="fixed-bg fixed-bg--2">
+			<h2>"The nitrogen in our DNA, the calcium in our teeth, the iron in our blood, the carbon in our apple pies were made in the interiors of collapsing stars. We are made of starstuff."<br><br><span style="font-size: 75%;">Carl Sagan</span></h2>
+		</div>
+
+		<div class="scrolling-bg" id="projects">
+			<div class="scrolling-bg-content">
+				<h2>Projects</h2>
+				<ul class="cards">
+					<li class="cards-item">
+						<div class="card">
+							<a href="https://jeffreylancaster.github.io/game-of-thrones/" target="_blank">
+								<div class="card-image card-image-game-of-thrones"></div>
+								<div class="card-content">
+									<div class="card-title">Game of Thrones</div>
+								</a>
+								<p class="card-text">Datasets and visualizations of HBO's <span style="font-style: italic;">Game of Thrones</span>.</p>
+								<!-- <button class="btn btn-block card-btn">Button</button> -->
+							</div>
+						</div>
+					</li>
+					<li class="cards-item">
+						<div class="card">
+							<a href="https://jeffreylancaster.github.io/stranger-things/" target="_blank">
+								<div class="card-image card-image-stranger-things"></div>
+								<div class="card-content">
+									<div class="card-title">Stranger Things</div>
+								</a>
+								<p class="card-text">Datasets and visualizations of Netflix's <span style="font-style: italic;">Stranger Things</span>.</p>
+								<!-- <button class="btn btn-block card-btn">Button</button> -->
+							</div>
+						</div>
+					</li>
+					<li class="cards-item">
+						<div class="card">
+							<a href="https://jeffreylancaster.github.io/marvel/" target="_blank">
+								<div class="card-image card-image-marvel"></div>
+								<div class="card-content">
+									<div class="card-title">Marvel</div>
+								</a>
+								<p class="card-text">Datasets and visualizations of Marvel character and comic data.</p>
+								<!-- <button class="btn btn-block card-btn">Button</button> -->
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="cards" style="justify-content: center; align-items: center;">
+					<li class="cards-item">
+						<div class="card">
+							<a href="/projects/">
+								<div class="card-content">
+									<div class="card-title" style="text-align: center;">View all</div>
+								</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="fixed-bg fixed-bg--3">
+			<!-- <h2>"I have always imagined that Paradise will be a kind of library."<br><br><span style="font-size: 75%;">Jorge Luis Borges</span></h2> -->
+			<h2>"Two dangers constantly threaten the world:<br>order and disorder."<br><br><span style="font-size: 75%;">Paul Valery</span></h2>
+		</div>
+
+		<div class="scrolling-bg" id="lists">
+			<div class="scrolling-bg-content">
+				<h2>Lists</h2>
+				<ul class="cards">
+					<li class="cards-item-quarter">
+						<div class="card">
+							<a href="/artists/">
+								<div class="card-image" style="background-image: url('/img/artists.jpg')"></div>
+								<div class="card-content">
+									<div class="card-title">Artists</div>
+								</a>
+								<p class="card-text">A list of artists I like and information about them.</p>
+								<!-- <button class="btn btn-block card-btn">Button</button> -->
+							</div>
+						</div>
+					</li>
+					<li class="cards-item-quarter">
+						<div class="card">
+							<a href="/publications/">
+								<div class="card-image" style="background-image: url('/publications/Dissertation_University_of_Oxford_2006.jpg');"></div>
+								<div class="card-content">
+									<div class="card-title">Publications</div>
+								</a>
+								<p class="card-text">A list publications I've authored.</p>
+								<!-- <button class="btn btn-block card-btn">Button</button> -->
+							</div>
+						</div>
+					</li>
+					<li class="cards-item-quarter">
+						<div class="card">
+							<a href="fiction.html">
+								<div class="card-image" style="background-image: url('../img/fiction.jpg');"></div>
+								<div class="card-content">
+									<div class="card-title">Fiction</div>
+								</a>
+								<p class="card-text">Some short works of fiction I like and needed a safe place to keep them.</p>
+								<!-- <button class="btn btn-block card-btn">Button</button> -->
+							</div>
+						</div>
+					</li>
+					<li class="cards-item-quarter">
+						<div class="card">
+							<a href="sites.html">
+								<div class="card-image" style="background-image: url('../img/buildnmap.png');"></div>
+								<div class="card-content">
+									<div class="card-title">Sites Designed</div>
+								</a>
+								<p class="card-text">A list of websites I've designed. Some are embarrassing.</p>
+								<!-- <button class="btn btn-block card-btn">Button</button> -->
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="fixed-bg fixed-bg--4" id="contact">
+			<h2>Let's chat?<br><span style="font-size: 75%">✉️ jeffrey [at] jeffreylancaster [dot] com</span></h2>
+		</div>
+	</main>
+
+<script src="js/main.js"></script> <!-- Resource JavaScript -->
+
+<!-- for typing effect -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
+<script>
+	var typed = new Typed('.typed', {
+		strings: [
+			"I am a thinker.",
+			"I am a doer.",
+			"I am creative.",
+			"I was a chemist.",
+			"I am a developer.",
+			"I am an artist.",
+			"I am curious.",
+			"I am a tinkerer.",
+			"I am empirical.",
+			"I was a librarian.",
+			"I am independent.",
+			"I am a team-player.",
+			"I am a leader.",
+			"I am a communicator.",
+			"I love ellipses ...",
+			"... and interrobangs.",
+			"I am a problem-solver.",
+			"I am a technologist.",
+			"I am an educator."
+		],
+		typeSpeed: 40,
+		backDelay: 1200,
+		startDelay: 1000,
+		backSpeed: 30,
+		loop: true
+	});
+</script>
+
+<!-- for smooth scrolling -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	// Add smooth scrolling to all links
+	$(".scroll").on('click', function(event) {
+
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+			// Prevent default anchor click behavior
+			event.preventDefault();
+
+			// Store hash
+			var hash = this.hash;
+
+			// Using jQuery's animate() method to add smooth page scroll
+			// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top
+			}, 800, function(){
+
+				// Add hash (#) to URL when done scrolling (default click behavior)
+				window.location.hash = hash;
+			});
+		} // End if
+	});
+});
+</script>
 </body>
 </html>

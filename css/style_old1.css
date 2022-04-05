@@ -1,0 +1,517 @@
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  /*font-family: "Roboto", Helvetica, Arial, sans-serif;*/
+  color: #3d3536;
+  /*background-color: white;*/
+  background-color: #f0f0f0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+
+a {
+  color: navy;
+  text-decoration: none;
+}
+
+/* -------------------------------- 
+
+Alternate Fixed & Scroll Backgrounds - by CodyHouse.co
+
+-------------------------------- */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  /*font-family: "Roboto", Helvetica, Arial, sans-serif;*/
+}
+
+.main-header:after {
+  /* clearfix */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.main-header-logo {
+  float: left;
+  margin: 13px 0 0 5%;
+}
+
+.main-header-logo img {
+  display: block;
+}
+.main-header-logo a{
+  color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header {
+    height: 70px;
+  }
+  .main-header-logo {
+    margin: 23px 0 0 5%;
+  }
+}
+
+.main-nav {
+  float: right;
+  margin-right: 5%;
+  width: 44px;
+  height: 100%;
+  background: url("../img/icon-menu.svg") no-repeat center center;
+  background-size: 44px 44px;
+  cursor: pointer;
+}
+
+.main-nav-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.main-nav-list.main-nav-list--is-visible {
+  -webkit-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+          transform: translateY(50px);
+}
+
+.main-nav-list a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 5%;
+  background: #2f292a;
+  border-top: 1px solid #453c3d;
+  color: #8e7d7f;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-nav {
+    /* reset style */
+    width: auto;
+    height: auto;
+    background: none;
+    cursor: auto;
+  }
+  .main-nav-list {
+    /* reset style */
+    position: static;
+    width: auto;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    line-height: 70px;
+  }
+  .main-nav-list.main-nav-list--is-visible {
+    /* reset style */
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+  }
+  .main-nav-list li {
+    display: inline-block;
+    margin-left: 1em;
+  }
+  .main-nav-list a {
+    display: inline-block;
+    height: auto;
+    line-height: normal;
+    background: transparent;
+    padding: .6em 1em;
+    border-top: none;
+    color: #3d3536;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+  .main-nav-list a:hover {
+    color: #99a478;
+  }
+}
+
+.fixed-bg {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 1;
+}
+
+.fixed-bg-content, .fixed-bg h2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.fixed-bg h1, .fixed-bg h2 {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.fixed-bg.fixed-bg--1 {
+  background-image: url("../img/background-1.jpg"); /* rawpixel-211022-unsplash.jpg */
+}
+
+.fixed-bg.fixed-bg--2 {
+  background-color: #193d6d;
+  background-image: url("../img/background-2.jpg"); /* jeremy-thomas-98201-unsplash.jpg */
+}
+
+.fixed-bg.fixed-bg--3 {
+  background-image: url("../img/background-3.jpg"); /* joe-mcdaniel-380052-unsplash.jpg */
+}
+
+.fixed-bg.fixed-bg--4 {
+  background-image: url("../img/background-4.jpg"); /* teemu-paananen-283670-unsplash.jpg */
+}
+
+@media only screen and (min-width: 768px) {
+  .fixed-bg h1, .fixed-bg h2 {
+    font-size: 3.6rem;
+  }
+}
+
+@media only screen and (min-width: 1170px) {
+  .fixed-bg h1, .fixed-bg h2 {
+    font-size: 4.8rem;
+    font-weight: 300;
+  }
+  @supports (background-attachment: fixed) {
+    /* fix bug on IE11 and below */
+    .fixed-bg {
+      background-attachment: fixed;
+    }
+  }
+}
+
+.scrolling-bg {
+  position: relative;
+  /*min-height: 100%;*/
+  padding: 1em;
+  line-height: 1.6;
+  -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  background-color: #f0f0f0;
+  color: #333333;
+}
+
+.scrolling-bg-content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .scrolling-bg {
+    padding: 4em 0;
+    font-size: 2rem;
+    line-height: 2;
+    font-weight: 300;
+  }
+  .scrolling-bg-content h2{
+    font-size: 3rem;
+    padding-left: 10px;
+  }
+}
+
+/* NEW */
+
+
+/*img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+} *//* for header logo image */
+
+.profile{
+  width: 8em;
+  height: 8em;
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+}
+@media(max-width: 768px){
+  .profile{
+    margin: 3em 0 1em 0;
+  }
+}
+
+/*
+.btn {
+  background-color: white;
+  border: 1px solid #cccccc;
+  color: #696969;
+  padding: 0.5rem;
+  text-transform: lowercase;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}*/
+ 
+/* ------
+
+  CARDS
+
+------ */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+.cards-item,
+.cards-item-quarter,
+.cards-item-one-fifth,
+.cards-item-four-fifths {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+}
+
+@media(min-width: 56rem) {
+  .cards-item {width: 33.3333%;}
+  .cards-item-quarter {width: 25%;}
+  .cards-item-one-fifth {width: 20%;}
+  .cards-item-four-fifths {width: 80%;}
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card {
+  background-color: white;
+  /*border-radius: 0.25rem;*/
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+.card:hover .card-image{
+  -webkit-filter: contrast(100%);
+  filter: contrast(100%);
+}
+
+.card-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: contrast(70%);
+  filter: contrast(70%);
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+}
+
+.card-image::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+@media(min-width: 40rem) {
+  .card-image::before {
+    padding-top: 66.6%; /* 3:2 aspect ratio */
+  }
+}
+
+.card-image-game-of-thrones {
+  background-image: url("../img/game-of-thrones.jpg");
+}
+
+.card-image-stranger-things {
+  background-image: url("../img/stranger-things.jpg");
+}
+
+.card-image-marvel {
+  background-image: url("../img/marvel.jpg");
+}
+
+.card-title {
+  color: #696969;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.card-text {
+  flex: 1 1 auto;
+  font-size: 1.3rem;
+  line-height: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.typed-cursor {
+  color: white;
+  font-size: 1.6em;
+}
+
+
+
+.container {
+  font-size: 100%;
+  max-width: 1000px;
+  margin: 100px auto;
+  width: 100%;
+}
+.container h2 {
+  font-size: 3rem;
+  margin: 2rem 10px;
+  font-weight: 300;
+}
+
+.container ul {
+  font-size: 2rem;
+}
+.container ul > a > li {
+  margin-bottom: 1.5rem;
+}
+.container ul > a > li > ul > li {
+  font-style: normal;
+  margin: 0.5rem 1.5rem;
+  font-size: 1.7rem;
+}
+.container-text {
+  max-width: 600px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  margin: 0 auto 10rem;
+  padding: 0;
+  line-height: 2rem;
+}
+.container-text .title {
+  font-size: 3rem;
+  line-height: 3.25rem;
+  margin: 3rem 2rem;
+  padding-top: 3rem;
+}
+.container-text .author {
+  font-size: 2rem;
+  line-height: 3rem;
+  text-align: right;
+  margin: 3rem 2rem;
+}
+
+.text{
+  padding-bottom: 1rem;
+}
+.text hr {
+  margin: 3rem 0;
+}
+.text p {
+  margin: 3rem 2rem;
+}
+.text h2 {
+  font-size: 2em;
+  margin: 2em 0 2rem 20px;
+}
+.name {
+  padding-right: 20px;
+}
+
+.artist a i{
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.social a i{
+  font-size: 2em;
+}
+
+@media(max-width: 768px) {
+  .social a i{
+    visibility: hidden;
+  }
+}
+
+.fa-home{background-color: #ff0000;}
+.fa-home:hover{background-color: #ce0202;}
+.fa-google{background-color: #4285f4;}
+.fa-google:hover{background-color: #28549c;}
+.fa-wikipedia-w{
+  font-size: 14px;
+  background-color: #000;
+}
+.fa-wikipedia-w:hover{background-color: #666;}
+.fa-link{background-color: #999;}
+.fa-link:hover{background-color: #666;}
+.fa-file-image{background-color: #ffbc00;}
+.fa-file-image:hover{background-color: #8c6700;}
+.fa-book{background-color: #8c6700;}
+.fa-book:hover{background-color: #c79302;}
+.fa-wordpress-simple{background-color: #464646;}
+.fa-wordpress-simple:hover{background-color: #666;}
+
+ul#navlist{
+  padding: 3rem 2rem;
+  text-align: center;
+}
+ul#navlist li {
+  display: inline;
+}
+

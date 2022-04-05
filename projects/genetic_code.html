@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+<script type="text/javascript">
+function showlist(target){
+	myString = '';
+	y = 0;
+	for (i=0; i<1000000; i++) {
+		x = Math.round(Math.random()*3+1);
+		if (x==1) {myString += 'A ';}
+		else if (x==2) {myString += 'C ';}
+		else if (x==3) {myString += 'G ';}
+		else if (x==4) {myString += 'T ';}
+		<!--if (y == 100) {myString += ' '; y = 0;}else {y++;}-->
+	}
+	document.getElementById(target).innerHTML = '<font face="Arial, Helvetica, sans-serif" size="1">'+myString+'</font>';
+}
+</script>
+
+<body>
+<form name="range" id="range">
+                            <div align="center">
+                                  <select name="billions" onChange="SelectIt2()" size="1">
+                                    <option value="none" selected>Select Range</option>
+                                    <option value="">1 - 1,000,000,000</option>
+                                    <option value="">1,000,000,001 - 2,000,000,000</option>
+                                    <option value="">2,000,000,001 - 3,000,000,000</option>
+                                   </select>
+                                   <select name="hundred_millions" onChange="SelectIt2()" size="1">
+                                    <option value="none" selected>Select Range</option>
+                                    <option value="">1 - 100,000,000</option>
+                                    <option value="">100,000,001 - 200,000,000</option>
+                                    <option value="">200,000,001 - 300,000,000</option>
+                                    <option value="">300,000,001 - 400,000,000</option>
+                                    <option value="">400,000,001 - 500,000,000</option>
+                                    <option value="">500,000,001 - 600,000,000</option>
+                                    <option value="">600,000,001 - 700,000,000</option>
+                                    <option value="">700,000,001 - 800,000,000</option>
+                                    <option value="">800,000,001 - 900,000,000</option>
+                                    <option value="">900,000,001 - 1,000,000,000</option>
+                                   </select>
+                                   <select name="ten_millions" onChange="SelectIt2()" size="1">
+                                    <option value="none" selected>Select Range</option>
+                                    <option value="">1 - 10,000,000</option>
+                                    <option value="">10,000,001 - 20,000,000</option>
+                                    <option value="">20,000,001 - 30,000,000</option>
+                                    <option value="">30,000,001 - 40,000,000</option>
+                                    <option value="">40,000,001 - 50,000,000</option>
+                                    <option value="">50,000,001 - 60,000,000</option>
+                                    <option value="">60,000,001 - 70,000,000</option>
+                                    <option value="">70,000,001 - 80,000,000</option>
+                                    <option value="">80,000,001 - 90,000,000</option>
+                                    <option value="">90,000,001 - 100,000,000</option>
+                                   </select>
+                                   <select name="millions" onChange="SelectIt2()" size="1">
+                                    <option value="none" selected>Select Range</option>
+                                    <option value="">1 - 1,000,000</option>
+                                    <option value="">1,000,001 - 2,000,000</option>
+                                    <option value="">2,000,001 - 3,000,000</option>
+                                    <option value="">3,000,001 - 4,000,000</option>
+                                    <option value="">4,000,001 - 5,000,000</option>
+                                    <option value="">5,000,001 - 6,000,000</option>
+                                    <option value="">6,000,001 - 7,000,000</option>
+                                    <option value="">7,000,001 - 8,000,000</option>
+                                    <option value="">8,000,001 - 9,000,000</option>
+                                    <option value="">9,000,001 - 10,000,000</option>
+                                   </select>
+                            </div>
+                          </form>
+                          <form name="View" id="View">
+                          	<div align="center">
+                              <input type="submit" value="View Base Pairs" onClick="">
+                            </div>
+                          </form>
+<table width="800" align="center"><tr><td align="justify">
+<p id="list_id" align="justify">
+    <script>showlist('list_id');</script>
+</p>
+</td></tr></table>
+</body>
+</html>

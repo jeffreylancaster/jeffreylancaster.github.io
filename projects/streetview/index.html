@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Google Streetview Test</title>
+<script type="text/javascript">
+function makemap(lat, lon, angle){
+	var scale = 250;
+	maptext = '';
+	h = Math.round(scale*angle/90);
+	for(i=0; i<360; i=i+angle){
+		maptext += '<img src="http://maps.googleapis.com/maps/api/streetview?key=AIzaSyD_JrhgMmna-qF4cfgY90lhVt8TpZYkCGE&size='+h+'x'+scale+'&location='+lat+',%20'+lon+'&fov='+angle+'&heading='+i+'&pitch=0&sensor=false" width="'+h+'px" height="'+scale+'px" class="img'+Math.round(angle)+'"/>';
+	}
+	document.write(maptext);
+}
+</script>
+<style type="text/css">
+.crop{
+	margin-bottom: 20px;
+	overflow:hidden;
+	}
+.img23{
+	margin:-42px 0px -42px 0px;
+	}
+.img30{
+	margin:-20px 0px -20px 0px;
+	}
+</style>
+
+</head>
+
+<body>
+
+<h3>120 degrees</h3>
+<script>makemap(40.720032, -73.988354, 120);</script>
+
+<h3>90 degrees</h3>
+<script>makemap(40.720032, -73.988354, 90);</script>
+
+<h3>60 degrees</h3>
+<script>makemap(40.720032, -73.988354, 60);</script>
+
+<h3>45 degrees</h3>
+<script>makemap(40.720032, -73.988354, 45);</script>
+
+<h3>30 degrees</h3>
+<div class="crop">
+<script>makemap(40.720032, -73.988354, 30);</script>
+</div>
+
+<h3>22.5 degrees</h3>
+<div class="crop">
+<script>makemap(40.720032, -73.988354, 22.5);</script>
+</div>
+
+<!--<h3>120 degrees</h3>
+<p><img src="http://maps.googleapis.com/maps/api/streetview?size=533x400&location=40.720032,%20-73.988354&fov=120&heading=0&pitch=0&sensor=false" width="533" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=533x400&location=40.720032,%20-73.988354&fov=120&heading=120&pitch=0&sensor=false" width="533" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=533x400&location=40.720032,%20-73.988354&fov=120&heading=-120&pitch=0&sensor=false" width="533" height="400px" /></p>
+
+<h3>90 degrees</h3>
+<p><img src="http://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,%20-73.988354&fov=90&heading=0&pitch=0&sensor=false" width="400" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,%20-73.988354&fov=90&heading=90&pitch=0&sensor=false" width="400" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,%20-73.988354&fov=90&heading=180&pitch=0&sensor=false" width="400" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,%20-73.988354&fov=90&heading=-90&pitch=0&sensor=false" width="400" height="400px" /></p>
+
+<h3>45 degrees</h3>
+<p><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=0&pitch=0&sensor=false" width="200" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=45&pitch=0&sensor=false" width="200" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=90&pitch=0&sensor=false" width="200" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=135&pitch=0&sensor=false" width="200" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=180&pitch=0&sensor=false" width="200" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=-135&pitch=0&sensor=false" width="200" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=-90&pitch=0&sensor=false" width="200" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=200x400&location=40.720032,%20-73.988354&fov=45&heading=-45&pitch=0&sensor=false" width="200" height="400px" /></p>
+
+<h3>30 degrees</h3>
+<p><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=0&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=30&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=60&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=90&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=120&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=150&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=180&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=210&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=240&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=270&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=300&pitch=0&sensor=false" width="133" height="400px" /><img src="http://maps.googleapis.com/maps/api/streetview?size=133x400&location=40.720032,%20-73.988354&fov=30&heading=330&pitch=0&sensor=false" width="133" height="400px" /></p>-->
+</body>
+</html>

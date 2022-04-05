@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Random QR Code</title>
+<meta name="author" content="Jeffrey Lancaster">
+<script type="text/javascript">
+function qr(){
+	content = "";
+	for(i=0; i<625; i++) {
+		if(i==0||i==1||i==2||i==3||i==4||i==5||i==6||i==18||i==19||i==20||i==21||i==22||i==23||i==24||i==25||i==31||i==43||i==49||i==50||i==52||i==53||i==54||i==56||i==68||i==70||i==71||i==72||i==74||i==75||i==77||i==78||i==79||i==81||i==93||i==95||i==96||i==97||i==99||i==100||i==102||i==103||i==104||i==106||i==118||i==120||i==121||i==122||i==124||i==125||i==131||i==143||i==149||i==150||i==151||i==152||i==153||i==154||i==155||i==156||i==168||i==169||i==170||i==171||i==172||i==173||i==174||i==416||i==417||i==418||i==419||i==420||i==441||i==445||i==450||i==451||i==452||i==453||i==454||i==455||i==456||i==466||i==468||i==470||i==475||i==481||i==491||i==495||i==500||i==502||i==503||i==504||i==506||i==516||i==517||i==518||i==519||i==520||i==525||i==527||i==528||i==529||i==531||i==550||i==552||i==553||i==554||i==556||i==575||i==581||i==600||i==601||i==602||i==603||i==604||i==605||i==606){
+			//black box
+			content += '<div style="width: 10px; height: 10px; background-color:#000; display: inline-block; margin: 0px; padding: 0px;"></div>';
+		} else if(i==7||i==17||i==26||i==27||i==28||i==29||i==30||i==32||i==42||i==44||i==45||i==46||i==47||i==48||i==51||i==55||i==57||i==67||i==69||i==73||i==76||i==80||i==82||i==92||i==94||i==98||i==101||i==105||i==107||i==117||i==119||i==123||i==126||i==127||i==128||i==129||i==130||i==132||i==142||i==144||i==145||i==146||i==147||i==148||i==157||i==167||i==175||i==176||i==177||i==178||i==179||i==180||i==181||i==182||i==192||i==193||i==194||i==195||i==196||i==197||i==198||i==199||i==425||i==426||i==427||i==428||i==429||i==430||i==431||i==432||i==442||i==443||i==444||i==457||i==467||i==469||i==476||i==477||i==478||i==479||i==480||i==482||i==492||i==493||i==494||i==501||i==505||i==507||i==526||i==530||i==532||i==551||i==555||i==557||i==576||i==577||i==578||i==579||i==580||i==582||i==607) {
+			//white box
+			content += '<div style="width: 10px; height: 10px; background-color:#FFF; display: inline-block; margin: 0px; padding: 0px;"></div>';
+		} else {
+			//random function
+			var x = Math.floor(Math.random()*2);
+			if(x == 0){
+				content += '<div style="width: 10px; height: 10px; background-color:#000; display: inline-block; margin: 0px; padding: 0px;"></div>';
+			} else if(x == 1){
+				content += '<div style="width: 10px; height: 10px; background-color:#FFF; display: inline-block; margin: 0px; padding: 0px;"></div>';
+			}
+		}
+	}
+	document.getElementById("qr").innerHTML = content;
+	t = setTimeout("qr();",4000);
+}
+</script>
+
+</head>
+
+<body style="margin-top: 150px;">
+<center>
+<div style="width: 250px; height: 250px; line-height: 10px;" id="qr">
+	<script>qr();</script>
+</div>
+</center>
+</body>
+</html>

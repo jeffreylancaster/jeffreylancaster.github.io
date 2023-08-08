@@ -370,6 +370,14 @@ Alternate Fixed & Scroll Backgrounds - by CodyHouse.co
   }
 }
 
+.card-image-gradient {
+  background-image: url("../img/gradient.png");
+}
+
+.card-image-word-clock {
+  background-image: url("../img/word-clock.png");
+}
+
 .card-image-game-of-thrones {
   background-image: url("../img/game-of-thrones.jpg");
 }
